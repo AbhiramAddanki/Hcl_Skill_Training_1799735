@@ -1,0 +1,23 @@
+class Solution {
+public:
+    int findPeakElement(vector<int>& nums) {
+        int n=nums.size();
+        int low=0;
+        int high=n-1;
+        while(low<high){
+            int mid=low+(high-low)/2;
+            if(nums[mid]<nums[mid+1]){
+                low=mid+1;
+            }
+            else{
+                high=mid;
+            }
+        }
+        return low;
+        
+    }
+};
+
+
+here my approach the peak element will be always on right side compare the mid with its right if there move towards right 
+or else shrink right part 

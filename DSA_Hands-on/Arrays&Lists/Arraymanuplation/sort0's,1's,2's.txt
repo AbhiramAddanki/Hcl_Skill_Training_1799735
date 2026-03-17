@@ -1,0 +1,37 @@
+Problem:
+Sort an array containing only 0, 1, and 2
+
+Input:
+n = 6
+arr = [2, 0, 2, 1, 1, 0]
+
+Expected Output:
+0 0 1 1 2 2
+
+⸻
+
+Approach:
+	1.	I will take a count (or) frequency array and store the frequency of each colour.
+	2.	Then modify the original array using the frequency values.
+
+code:
+    class Solution {
+public:
+    void sortColors(vector<int>& nums) {
+       int n=nums.size();
+       map<int,int>mp={{0,0},{1,0},{2,0}}; 
+
+       for(int i=0;i<n;i++){
+        mp[nums[i]]++;
+       }
+       int x=0;
+       for(int j=0;j<3;j++){
+        int z=mp[j];
+        for(int i=0;i<z;i++){
+            nums[x]=j;
+            x++;
+
+        }
+       }
+    }  
+};
